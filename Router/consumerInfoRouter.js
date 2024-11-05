@@ -7,5 +7,9 @@ const consumerInfoController = require('../Controllers/consumerInfoController')
 
 router.post('/consumer-info',consumerInfoController.consumerDetails)
 router.get('/all-consumers',consumerInfoController.allConsumersApi)
+router.delete('/delete-consumer', consumerInfoController.deleteConsumerByIdApi);
+router.get('/consumerinfo-byid', consumerInfoController.consumerInfoById);
+
+
 
 module.exports=router;

@@ -70,6 +70,7 @@ exports.login = async (req, res) => {
 
         const existingUser = await users.findOne({ email: email, password: password });
         if (existingUser) {
+          
             const token = jwt.sign({ userId: existingUser._id }, 'shon123')
             console.log(token);
 
