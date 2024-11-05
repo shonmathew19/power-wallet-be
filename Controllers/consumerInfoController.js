@@ -2,7 +2,8 @@ const consumerInfos = require('../Models/consumerInfoModel')
 
 exports.consumerDetails = async (req, res) => {
     try {
-        const { consumerNumber,
+        const { 
+            consumerNumber,
             consumerName,
             consumerAddress,
             billNumber,
@@ -59,4 +60,8 @@ exports.allConsumersApi = async (req, res) => {
     const allConsumers = await consumerInfos.find()
     res.status(200).json({allConsumers})
 
+}
+
+exports.deleteConsumerById = async(req,res)=>{
+    const deletedConsumer = await consumerInfos.findByIdAndDelete(req.body.)
 }

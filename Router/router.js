@@ -6,6 +6,8 @@ const userController = require('../Controllers/userController')
 //paths
 router.post('/user/register',userController.register)
 router.post('/user/login',userController.login)
+router.delete('/users/delete',userController.deleteAll)
+
 
 
 

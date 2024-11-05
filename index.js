@@ -7,10 +7,11 @@ require('dotenv').config()
 //import express module, DB,routes
 const express = require('express')
 
-require('./DB/connection.js')
+require('./DB/connection.js');
 const routes = require('./Router/router.js');
-const consumerInfoRouter = require('./Router/consumerInfoRouter.js')
-const newConnectionRouter = require('./Router/newConnectionRouter.js')
+const consumerInfoRouter = require('./Router/consumerInfoRouter.js');
+const newConnectionRouter = require('./Router/newConnectionRouter.js');
+const priceUpdatesRouter = require('./Router/priceUpdatesRouter.js');
 
 
 //import cors modules
@@ -28,6 +29,7 @@ pwServer.use(express.json());
 pwServer.use(routes);
 pwServer.use(consumerInfoRouter);
 pwServer.use(newConnectionRouter);
+pwServer.use(priceUpdatesRouter);
 
 
 
