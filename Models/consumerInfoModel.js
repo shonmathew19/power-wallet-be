@@ -106,6 +106,10 @@ const consumerInfoSchema = new mongoose.Schema({
         required: false,
         default: ''
     },
+    paymentStatus:{
+        type:String,
+        default:'Not done'
+    }
 });
 
 

@@ -21,7 +21,7 @@ exports.register = async (req, res) => {
             const newConsumerInfos = new consumerInfos({
                 userId: newUser._id,
                 consumerNumber: req.body.consumerNumber || 0,
-                consumerName: req.body.consumerName || 'needs to be updated',
+                consumerName: newUser.username || 'needs to be updated',
                 consumerAddress: req.body.consumerAddress || 'needs to be updated',
                 billNumber: req.body.billNumber || 0,
                 dateOfBillGeneration: req.body.dateOfBillGeneration || new Date(),
@@ -65,7 +65,7 @@ exports.register = async (req, res) => {
 
 //login
 exports.login = async (req, res) => {
-    try {
+   
         const { email, password } = req.body;
 
         const existingUser = await users.findOne({ email: email, password: password });
@@ -82,9 +82,6 @@ exports.login = async (req, res) => {
             res.status(401).json('Invalid email or password')
         }
 
-    } catch (err) {
-        res.status(400).json(err)
-    }
 }
 
 
