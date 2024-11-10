@@ -59,7 +59,7 @@ exports.consumerDetails = async (req, res) => {
 }
 //all consumers
 exports.allConsumersApi = async (req, res) => {
-    const allConsumers = await consumerInfos.find()
+    const allConsumers = await consumerInfos.find().sort({ createdAt: -1 })
     res.status(200).json({ allConsumers })
 
 

@@ -109,7 +109,7 @@ const consumerInfoSchema = new mongoose.Schema({
     paymentStatus:{
         type:String,
         default:'Not done'
-    }
+    },createdAt: { type: Date, default: Date.now }
 });
 
 

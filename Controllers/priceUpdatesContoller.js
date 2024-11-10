@@ -5,11 +5,11 @@ const priceUpdates = require('../Models/priceUpdatesModel')
 exports.addPrice = async (req, res) => {
     console.log('indide')
     try {
-        const { unitPrice,additionalCharges,taxes } = req.body
+        const { unitPrice, additionalCharges, taxes } = req.body
 
-            console.log(unitPrice,
-                additionalCharges,
-                taxes)
+        console.log(unitPrice,
+            additionalCharges,
+            taxes)
 
         const newPrices = new priceUpdates({
             unitPrice,
@@ -36,3 +36,4 @@ exports.latestPrice = async (req, res) => {
         res.status(500).json('Internal server error.');
     }
 };
+
