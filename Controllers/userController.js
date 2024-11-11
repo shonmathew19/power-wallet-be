@@ -41,15 +41,15 @@ exports.register = async (req, res) => {
                 websiteOrEmail: req.body.websiteOrEmail || 'needs to be updated',
                 additionalNotes: req.body.additionalNotes || 'needs to be updated'
             });
-            
-            
-            
+
+
+
 
             await newConsumerInfos.save().catch(error => {
                 console.error('Error saving consumer info:', error);
                 res.status(500).json({ message: 'Error saving consumer information.' });
             });
-            
+
             res.status(201).json({
                 data: newUser,
             });
@@ -65,12 +65,13 @@ exports.register = async (req, res) => {
 
 //login
 exports.login = async (req, res) => {
-   
-        const { email, password } = req.body;
 
+    const { email, password } = req.body;
+
+    try {
         const existingUser = await users.findOne({ email: email, password: password });
         if (existingUser) {
-          
+
             const token = jwt.sign({ userId: existingUser._id }, 'shon123')
             console.log(token);
 
@@ -81,7 +82,9 @@ exports.login = async (req, res) => {
         } else {
             res.status(401).json('Invalid email or password')
         }
-
+    } catch (error) {
+        res.status(500).json(error)
+    }
 }
 
 
